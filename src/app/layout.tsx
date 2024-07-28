@@ -4,7 +4,8 @@ import { roboto } from '@/config';
 
 import '@/styles/globals.css';
 import { siteConfig } from '@/config/site';
-import { cn } from '@/lib/twMerge-clsx';
+import { cn } from '@/lib/utils';
+import { QueryProvider } from '@/providers/tanstack';
 
 export const metadata: Metadata = {
   title: {
@@ -30,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang='es' className='scroll-smooth'>
       <body className={cn('min-h-screen antialiased', roboto.variable)}>
-        {children}
+        <QueryProvider>{children}</QueryProvider>
       </body>
     </html>
   );
