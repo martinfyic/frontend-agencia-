@@ -38,8 +38,8 @@ export default function LoginFormPage() {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     const { email, password } = values;
-    const { user, metadata } = await loginUser({ email, password });
-    console.log({ user, metadata }); // TODO: resolver CORS
+    const logUser = await loginUser({ email, password });
+    console.log(logUser);
   }
 
   return (
@@ -54,7 +54,7 @@ export default function LoginFormPage() {
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input placeholder='shadcn' {...field} />
+                  <Input placeholder='example@example.com' {...field} />
                 </FormControl>
                 <FormDescription>
                   This is your public display email.
@@ -70,7 +70,7 @@ export default function LoginFormPage() {
               <FormItem>
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <Input placeholder='shadcn' {...field} />
+                  <Input placeholder='********' {...field} />
                 </FormControl>
                 <FormDescription>
                   This is your public display password.
