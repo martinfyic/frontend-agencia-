@@ -1,4 +1,4 @@
-import apiBackend from '@/lib/api/axios';
+import apiClient from '@/lib/api/axios';
 
 interface LoginInterface {
   email: string;
@@ -6,6 +6,6 @@ interface LoginInterface {
 }
 
 export const loginUser = async ({ email, password }: LoginInterface) => {
-  const { data } = await apiBackend.post('/auth/login', { email, password });
+  const { data } = await apiClient.post('/auth/login', { email, password });
   return data;
 };
