@@ -6,6 +6,10 @@ interface LoginInterface {
 }
 
 export const loginUser = async ({ email, password }: LoginInterface) => {
-  const { data } = await apiClient.post('/auth/login', { email, password });
-  return data;
+  try {
+    const { data } = await apiClient.post('/auth/login', { email, password });
+    return data;
+  } catch (error) {
+    return error;
+  }
 };
